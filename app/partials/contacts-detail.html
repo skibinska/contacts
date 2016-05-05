@@ -1,0 +1,12 @@
+<div class="modal-header">
+    <h2>Contact Detail</h2>
+</div>
+<div class="modal-body">
+    <label>Name:</label> {{contact.name}}<br>
+    <label>Address:</label> {{contact.address.street}}, {{contact.address.city}}<br>
+    <label>Email:</label> {{contact.email}}<br>
+    <label>Phone:</label> {{contact.phone}}<br>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">OK</button>
+</div>

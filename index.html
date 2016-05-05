@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="contactsApp">
+<head>
+    <meta charset="UTF-8">
+    <title>contacts</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="home">WebSiteName</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a ui-sref="home" ui-sref-active="active">Home</a></li>
+            <li><a ui-sref="contacts" ui-sref-active="active">Contacts</a></li>
+            <li><a ui-sref="add" ui-sref-active="active">New Contact</a></li>
+        </ul>
+        <form class="navbar-form navbar-right" role="search">
+            <input type="text" class="form-control" placeholder="Search" ng-model="search">
+        </form>
+    </div>
+</nav>
+<div class="container">
+    <div ui-view></div>
+</div>
+
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+
+<script src="app/scripts/contacts.module.js"></script>
+<script src="app/scripts/contacts.config.js"></script>
+<script src="app/scripts/contacts.controller.js"></script>
+<script src="app/scripts/contacts.modal-contact-detail.controller.js"></script>
+<script src="app/scripts/contacts-gateway.service.js"></script>
+
+</body>
+</html>
