@@ -6,6 +6,7 @@
 
     <div class="row">
         <div class="col-sm-12">
+
             <div class="form-group" ng-class="{'has-error': formErrors && !addForm.name.$valid}">
                 <label for="name" class="col-sm-2 control-label">Name</label>
 
@@ -52,14 +53,15 @@
                 </div>
             </div>
         </div>
-        <div class="form-group well">
-            <div class="col-sm-offset-2 col-sm-10">
-                <input type="submit" class="btn btn-primary" value="Add Contact" ng-disabled="addForm.$invalid">
-            </div>
+        <hr>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <input type="submit" class="btn btn-primary" value="Save" ng-disabled="addForm.$invalid">
         </div>
     </div>
 </form>
 
-<pre>{{addForm |json}}</pre>
+<!--<pre>{{addForm |json}}</pre>-->
 
-<pre>{{contact |json}}</pre>
+<!--<pre>{{contact |json}}</pre>-->

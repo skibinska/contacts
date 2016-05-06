@@ -14,23 +14,17 @@
         $urlRouterProvider.otherwise('contacts');
 
         $stateProvider
-            
+
             .state('contacts', {
                 url: '/contacts',
                 templateUrl: '/app/partials/contacts.html',
                 controller: 'ContactsController'
             })
             .state('contacts.detail', {
-                url: '/:contactId',
-                templateUrl: '/app/partials/contacts-detail.html'
+                url: '/:contactId'
             })
             .state('contacts.edit', {
-                url: '/edit/:editId',
-                templateUrl: '/app/partials/contacts-detail.html'
-            })
-            .state('contacts.delete', {
-                url: '/:contactId',
-                templateUrl: '/app/partials/contacts.html'
+                url: '/:editId'
             })
             .state('add', {
                 url: '/add-contact',

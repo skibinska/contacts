@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('contactsApp')
-        .controller('ModalContactDetailController', controllerFn);
+        .controller('ModalContactController', controllerFn);
 
     function controllerFn(contact, $scope, $uibModalInstance) {
         $scope.contact = contact;

@@ -1,7 +1,7 @@
 <div class="page-header">
-    <h2>Contacts</h2> <span class="label label-default">{{contacts.length}}</span>
+    <h2>Contacts <span class="label label-default">{{contacts.length}}</span></h2>
 </div>
-<table class="table table-condensed">
+<table class="table table-hover">
     <thead>
     <tr>
         <th>Name</th>
@@ -15,19 +15,19 @@
         <td>{{contact.name}}</td>
         <td>{{contact.username}}</td>
         <td>
-            <a ui-sref="contacts.detail({contactId: contact.id})" ng-click="openContact(contact.id)"
+            <a ui-sref="contacts.detail({contactId: contact.id})" ng-click="showContact(contact.id)"
                class="btn btn-default">Detail</a>
         </td>
         <td>
-            <a ui-sref=".edit({editId: contact.id})" class="btn btn-primary" ng-click="editContact(contact.id)">
+            <a ui-sref="contacts.edit({editId: contact.id})" class="btn btn-primary" ng-click="editContact(contact.id)">
                 <i class="fa fa-pencil" aria-hidden="true"></i>{{contact.id}}</a>
-            <a  class="btn btn-danger" ng-click="deleteContact(contact.id)">
+            <a class="btn btn-danger" ng-click="deleteContact(contact.id)">
                 <i class="fa fa-trash" aria-hidden="true"></i></a>
         </td>
     </tr>
     </tbody>
 </table>
 
-<a class="btn btn-primary" ui-sref="add">Add New Contact</a>
+<a class="btn btn-success" ui-sref="add"><i class="fa fa-user" aria-hidden="true"></i>  Add New Contact</a>
 
 

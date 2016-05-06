@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
 </head>
 <body>
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="home">WebSiteName</a>
+            <a class="navbar-brand" ui-sref="contacts">WebSiteName</a>
         </div>
         <ul class="nav navbar-nav">
-            <li><a ui-sref="home" ui-sref-active="active">Home</a></li>
+            <li><a ui-sref="contacts" ui-sref-active="active">Home</a></li>
             <li><a ui-sref="contacts" ui-sref-active="active">Contacts</a></li>
             <li><a ui-sref="add" ui-sref-active="active">New Contact</a></li>
         </ul>
@@ -35,7 +35,7 @@
 <script src="app/scripts/contacts.module.js"></script>
 <script src="app/scripts/contacts.config.js"></script>
 <script src="app/scripts/contacts.controller.js"></script>
-<script src="app/scripts/contacts.modal-contact-detail.controller.js"></script>
+<script src="app/scripts/contacts.modal-contact.controller.js"></script>
 <script src="app/scripts/contacts-gateway.service.js"></script>
 
 </body>
