@@ -11,7 +11,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="contact in contacts | filter:search">
+    <tr ng-repeat="contact in contacts | orderBy: 'name'| filter:search">
         <td>{{contact.name}}</td>
         <td>{{contact.username}}</td>
         <td>
@@ -19,7 +19,7 @@
                class="btn btn-default">Detail</a>
         </td>
         <td>
-            <a ui-sref="contacts.edit({editId: contact.id})" class="btn btn-primary" ng-click="editContact(contact.id)">
+            <a ui-sref="contacts.edit({editId: contact.id})" class="btn btn-primary" ng-click="editContact(contact)">
                 <i class="fa fa-pencil" aria-hidden="true"></i>{{contact.id}}</a>
             <a class="btn btn-danger" ng-click="deleteContact(contact.id)">
                 <i class="fa fa-trash" aria-hidden="true"></i></a>

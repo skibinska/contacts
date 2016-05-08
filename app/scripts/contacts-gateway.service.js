@@ -18,7 +18,7 @@
         return service;
 
         /**
-         * @returns {Function|Promise}
+         * @returns {Function|promise}
          */
         function getContacts() {
             var deferred = $q.defer();
@@ -42,7 +42,7 @@
 
         /**
          * @param contactId
-         * @returns {Function|Promise}
+         * @returns {Function|promise}
          */
         function getContact(contactId) {
             var deferred = $q.defer();
@@ -58,7 +58,7 @@
 
         /**
          * @param contact
-         * @returns {Function|Promise}
+         * @returns {Function|promise}
          */
         function addContact(contact) {
             var deferred = $q.defer();
@@ -74,16 +74,15 @@
         }
 
         /**
-         * @param contactId
-         * @returns {Function|Promise}
+         * @param {Object} contact
+         * @returns {Function | promise}
          */
-        function saveContact(contactId) {
+        function saveContact(contact) {
             var deferred = $q.defer();
             $http
-                .put('http://jsonplaceholder.typicode.com/users/' + contactId)
+                .put('http://jsonplaceholder.typicode.com/users/' + contact.id, contact)
                 .then(function (data) {
                     deferred.resolve(data.data);
-                    //console.log('success from service: ', data.data, 'index-', contactId);
                 }, function (data) {
                     deferred.reject(data);
                 });
@@ -92,7 +91,7 @@
 
         /**
          * @param contactId
-         * @returns {Function|Promise}
+         * @returns {Function|promise}
          */
         function deleteContact(contactId) {
             var deferred = $q.defer();
