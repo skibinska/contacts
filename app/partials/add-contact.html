@@ -1,67 +1,74 @@
-<div class="page-header">
-    <h1>Add Contact</h1>
+<div class="modal-fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="vm.cancel()">×</button>
+            <h1 class="modal-title text-center">Add Contact</h1>
+        </div>
+        <div class="modal-body">
+            <form name="addForm" novalidate class="form-horizontal" ng-submit="addNewContact()">
+
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <div class="form-group" ng-class="{'has-error': formErrors && !addForm.name.$valid}">
+                            <label for="name" class="col-sm-2 control-label">Name</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" name="name" id="name" class="form-control" ng-model="contact.name"
+                                       required>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="{'has-error': formErrors && !addForm.name.$valid}">
+                            <label for="name" class="col-sm-2 control-label">Username</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" name="username" id="username" class="form-control"
+                                       ng-model="contact.username" required>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="{'has-error': formErrors && !addForm.email.$valid}">
+                            <label for="email" class="col-sm-2 control-label">Email</label>
+
+                            <div class="col-sm-9">
+                                <input type="email" name="email" id="email" class="form-control"
+                                       ng-model="contact.email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address.street" class="col-sm-2 control-label">Address street</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" name="address.street" id="address.street" class="form-control"
+                                       ng-model="contact.address.street" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address.city" class="col-sm-2 control-label">Address city</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" name="address.city" id="address.city" class="form-control"
+                                       ng-model="contact.address.city" required>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="{'has-error': formErrors && !addForm.phone.$valid}">
+                            <label for="phone" class="col-sm-2 control-label">Phone</label>
+
+                            <div class="col-sm-9">
+                                <input type="tel" name="phone" id="phone" class="form-control" ng-model="contact.phone"
+                                       required="true" ng-pattern="/^[0-9+()-]/">
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+                <div class="modal-footer">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <input type="submit" class="btn btn-primary" value="Save" ng-disabled="addForm.$invalid">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
-
-<form name="addForm" novalidate class="form-horizontal" ng-submit="addNewContact()">
-
-    <div class="row">
-        <div class="col-sm-12">
-
-            <div class="form-group" ng-class="{'has-error': formErrors && !addForm.name.$valid}">
-                <label for="name" class="col-sm-2 control-label">Name</label>
-
-                <div class="col-sm-9">
-                    <input type="text" name="name" id="name" class="form-control" ng-model="contact.name" required>
-                </div>
-            </div>
-            <div class="form-group" ng-class="{'has-error': formErrors && !addForm.name.$valid}">
-                <label for="name" class="col-sm-2 control-label">Username</label>
-
-                <div class="col-sm-9">
-                    <input type="text" name="username" id="username" class="form-control" ng-model="contact.username" required>
-                </div>
-            </div>
-            <div class="form-group" ng-class="{'has-error': formErrors && !addForm.email.$valid}">
-                <label for="email" class="col-sm-2 control-label">Email</label>
-
-                <div class="col-sm-9">
-                    <input type="email" name="email" id="email" class="form-control" ng-model="contact.email" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="address.street" class="col-sm-2 control-label">Address street</label>
-
-                <div class="col-sm-9">
-                    <input type="text" name="address.street" id="address.street" class="form-control"
-                           ng-model="contact.address.street" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="address.city" class="col-sm-2 control-label">Address city</label>
-
-                <div class="col-sm-9">
-                    <input type="text" name="address.city" id="address.city" class="form-control"
-                           ng-model="contact.address.city" required>
-                </div>
-            </div>
-            <div class="form-group" ng-class="{'has-error': formErrors && !addForm.phone.$valid}">
-                <label for="phone" class="col-sm-2 control-label">Phone</label>
-
-                <div class="col-sm-9">
-                    <input type="tel" name="phone" id="phone" class="form-control" ng-model="contact.phone"
-                           required="true" ng-pattern="/^[0-9+()-]/">
-                </div>
-            </div>
-        </div>
-        <hr>
-    </div>
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <input type="submit" class="btn btn-primary" value="Save" ng-disabled="addForm.$invalid">
-        </div>
-    </div>
-</form>
-
-<!--<pre>{{addForm |json}}</pre>-->
-
-<!--<pre>{{contact |json}}</pre>-->

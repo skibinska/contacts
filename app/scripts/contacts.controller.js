@@ -22,6 +22,7 @@
         $scope.getNextAvailableId = getNextAvailableId;
         $scope.saveContact = saveContact;
         $scope.showContact = showContact;
+        $scope.showAddNewContactForm = showAddNewContactForm;
 
         activate();
 
@@ -48,27 +49,22 @@
             return contact1.id > contact2.id ? contact1 : contact2
         }
 
-
-        function showContact(contactId) {
-            contactsGateway
-                .getContact(contactId)
-                .then(contactSuccessHandler);
-        }
-
-        function contactSuccessHandler(data) {
-            $scope.contact = data;
-            var modalInstance = $uibModal.open({
+        /**
+         * @param {Object} contact
+         */
+        function showContact(contact) {
+            $uibModal.open({
                 backdrop: 'static',
                 templateUrl: '/app/partials/contacts-detail.html',
                 controller: 'ModalContactController',
+                controllerAs: 'vm',
                 size: 'md',
                 resolve: {
                     contact: function () {
-                        return $scope.contact;
+                        return contact;
                     }
                 }
             });
-            //$state.go('contacts');
         }
 
         function addNewContact() {
@@ -78,11 +74,8 @@
         }
 
         function addNewContactSuccessHandler(data) {
-            console.info('$scope.contacts.push(data) data=', data, $scope.contacts);
-
             $scope.contacts.push(data);
 
-            //console.log($scope.contacts.length);
             $scope.contact = {};
 
             $state.go('contacts');
@@ -156,6 +149,22 @@
 
         function saveContactFailureHandler() {
             console.error('could not save contact');
+        }
+
+        function showAddNewContactForm() {
+            var modalInstance = $uibModal.open({
+                backdrop: 'static',
+                templateUrl: '/app/partials/add-contact.html',
+                controller: 'ModalContactController',
+                controllerAs: 'vm',
+                size: 'md',
+                resolve: {
+                    contact: function () {
+                        return $scope.contact;
+                    }
+                }
+            });
+
         }
     }
 })();

@@ -11,12 +11,12 @@
             requireBase: false
         });
 
-        $urlRouterProvider.otherwise('contacts');
+        $urlRouterProvider.otherwise('/');
 
         $stateProvider
 
             .state('contacts', {
-                url: '/contacts',
+                url: '/',
                 templateUrl: '/app/partials/contacts.html',
                 controller: 'ContactsController'
             })
@@ -27,9 +27,7 @@
                 url: '/:editId'
             })
             .state('add', {
-                url: '/add-contact',
-                templateUrl: '/app/partials/add-contact.html',
-                controller: 'ContactsController'
+                url: '/add-contact'
             });
     }
 })();

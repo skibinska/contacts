@@ -15,7 +15,7 @@
         <td>{{contact.name}}</td>
         <td>{{contact.username}}</td>
         <td>
-            <a ui-sref="contacts.detail({contactId: contact.id})" ng-click="showContact(contact.id)"
+            <a ui-sref="contacts.detail({contactId: contact.id})" ng-click="showContact(contact)"
                class="btn btn-default">Detail</a>
         </td>
         <td>
@@ -28,6 +28,6 @@
     </tbody>
 </table>
 
-<a class="btn btn-success" ui-sref="add"><i class="fa fa-user" aria-hidden="true"></i>  Add New Contact</a>
+<a class="btn btn-success" ng-click="showAddNewContactForm()"><i class="fa fa-user" aria-hidden="true"></i>  Add New Contact</a>
 
 
