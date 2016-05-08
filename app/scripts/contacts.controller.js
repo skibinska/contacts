@@ -4,15 +4,13 @@
         .module('contactsApp')
         .controller('ContactsController', controllerFn);
 
-    function controllerFn(contactsGateway, $scope, $state, $uibModal) {
+    function controllerFn(contactsGateway, $log, $state, $uibModal) {
 
         var vm = this;
 
         vm.contacts = [];
-        vm.addNewContact = addNewContact;
         vm.deleteContact = deleteContact;
         vm.editContact = editContact;
-        vm.getNextAvailableId = getNextAvailableId;
         vm.showContact = showContact;
 
         activate();
@@ -20,22 +18,33 @@
         function activate() {
             contactsGateway
                 .getContacts()
-                .then(contactsGatewaySuccessHandler, contactsGatewayFailureHandler);
+                .then(contactsSuccessHandler, contactsFailureHandler);
         }
 
-        function contactsGatewaySuccessHandler(data) {
+        /**
+         * @param {Array.<Object>} data
+         */
+        function contactsSuccessHandler(data) {
             vm.contacts = data;
         }
 
-        function contactsGatewayFailureHandler() {
-            window.alert('There was an error!');
+        function contactsFailureHandler() {
+            $log.error('Could not fetch contacts.');
         }
 
+        /**
+         * @returns {Number}
+         */
         function getNextAvailableId() {
             var contactWithMaxId = vm.contacts.reduce(contactWithMaxIdReduceCallback);
             return contactWithMaxId.id + 1;
         }
 
+        /**
+         * @param {Object} contact1
+         * @param {Object} contact2
+         * @returns {Object}
+         */
         function contactWithMaxIdReduceCallback(contact1, contact2) {
             return contact1.id > contact2.id ? contact1 : contact2
         }
@@ -58,34 +67,26 @@
             });
 
             showModal.result.finally(showContactFinal);
-
-            function showContactFinal() {
-                $state.go('contacts');
-            }
         }
 
-        function addNewContact() {
-            contactsGateway
-                .addContact(vm.contact)
-                .then(addNewContactSuccessHandler);
-        }
-
-        function addNewContactSuccessHandler(data) {
-            vm.contacts.push(data);
-
-            vm.contact = {};
-
+        function showContactFinal() {
             $state.go('contacts');
         }
 
+        /**
+         * @param {Number} contactId
+         */
         function deleteContact(contactId) {
             contactsGateway
                 .deleteContact(contactId)
-                .then(function (data) {
+                .finally(function (data) {
                     deleteContactSuccessHandler(contactId);
                 });
         }
 
+        /**
+         * @param {Number} contactId
+         */
         function deleteContactSuccessHandler(contactId) {
 
             var contactIndexToDelete;
@@ -122,10 +123,10 @@
             modalInstance.result
                 .then(confirmContactChangesHandler)
                 .finally(editContactFinal);
+        }
 
-            function editContactFinal() {
-                $state.go('contacts');
-            }
+        function editContactFinal() {
+            $state.go('contacts');
         }
 
         function confirmContactChangesHandler() {
@@ -142,22 +143,6 @@
                 .then(updateContactSuccessHandler, updateContactFailureHandler);
         }
 
-        function createContact() {
-            contactsGateway
-                .addContact(vm.contact)
-                .then(addContactSuccessHandler, addContactFailureHandler);
-
-        }
-
-        function addContactSuccessHandler() {
-            vm.contact.id = getNextAvailableId();
-            vm.contacts.push(vm.contact);
-        }
-
-        function addContactFailureHandler() {
-            console.error('could not created contact');
-        }
-
         function updateContactSuccessHandler() {
             console.info(vm.contact);
             for (var i = 0; i < vm.contacts.length; i++) {
@@ -172,6 +157,22 @@
 
         function updateContactFailureHandler() {
             console.error('could not updated contact');
+        }
+
+        function createContact() {
+            contactsGateway
+                .addContact(vm.contact)
+                .then(addContactSuccessHandler, addContactFailureHandler);
+
+        }
+
+        function addContactSuccessHandler() {
+            vm.contact.id = getNextAvailableId();
+            vm.contacts.push(vm.contact);
+        }
+
+        function addContactFailureHandler() {
+            console.error('could not created contact');
         }
     }
 })();
