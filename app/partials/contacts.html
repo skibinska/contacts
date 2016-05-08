@@ -1,5 +1,5 @@
 <div class="page-header">
-    <h2>Contacts <span class="label label-default">{{contacts.length}}</span></h2>
+    <h2>Contacts <span class="label label-default">{{vm.contacts.length}}</span></h2>
 </div>
 <table class="table table-hover">
     <thead>
@@ -11,23 +11,23 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="contact in contacts | orderBy: 'name'| filter:search">
+    <tr ng-repeat="contact in vm.contacts | orderBy: 'name'| filter:search">
         <td>{{contact.name}}</td>
         <td>{{contact.username}}</td>
         <td>
-            <a ui-sref="contacts.preview({id: contact.id})" ng-click="showContact(contact)"
+            <a ui-sref="contacts.preview({id: contact.id})" ng-click="vm.showContact(contact)"
                class="btn btn-default">Detail</a>
         </td>
         <td>
-            <a ui-sref="contacts.edit({id: contact.id})" class="btn btn-primary" ng-click="editContact(contact)">
+            <a ui-sref="contacts.edit({id: contact.id})" class="btn btn-primary" ng-click="vm.editContact(contact)">
                 <i class="fa fa-pencil" aria-hidden="true"></i>{{contact.id}}</a>
-            <a class="btn btn-danger" ng-click="deleteContact(contact.id)">
+            <a class="btn btn-danger" ng-click="vm.deleteContact(contact.id)">
                 <i class="fa fa-trash" aria-hidden="true"></i></a>
         </td>
     </tr>
     </tbody>
 </table>
 
-<a class="btn btn-success" ui-sref="contacts.add" ng-click="editContact({})"><i class="fa fa-user" aria-hidden="true"></i>  Add New Contact</a>
+<a class="btn btn-success" ui-sref="contacts.add" ng-click="vm.editContact({})"><i class="fa fa-user" aria-hidden="true"></i>  Add New Contact</a>
 
 

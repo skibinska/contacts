@@ -21,7 +21,8 @@
             .state('contacts', {
                 url: '/contacts',
                 templateUrl: contactsTemplateUrl,
-                controller: contactsController
+                controller: contactsController,
+                controllerAs: 'vm'
             })
 
             .state('contacts.preview', {

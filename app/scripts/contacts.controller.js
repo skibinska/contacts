@@ -6,13 +6,14 @@
 
     function controllerFn(contactsGateway, $scope, $state, $uibModal) {
 
-        $scope.contacts = [];
-        $scope.addNewContact = addNewContact;
-        $scope.deleteContact = deleteContact;
-        $scope.editContact = editContact;
-        $scope.getNextAvailableId = getNextAvailableId;
-        $scope.showContact = showContact;
-        $scope.showAddNewContactForm = showAddNewContactForm;
+        var vm = this;
+
+        vm.contacts = [];
+        vm.addNewContact = addNewContact;
+        vm.deleteContact = deleteContact;
+        vm.editContact = editContact;
+        vm.getNextAvailableId = getNextAvailableId;
+        vm.showContact = showContact;
 
         activate();
 
@@ -23,7 +24,7 @@
         }
 
         function contactsGatewaySuccessHandler(data) {
-            $scope.contacts = data;
+            vm.contacts = data;
         }
 
         function contactsGatewayFailureHandler() {
@@ -31,7 +32,7 @@
         }
 
         function getNextAvailableId() {
-            var contactWithMaxId = $scope.contacts.reduce(contactWithMaxIdReduceCallback);
+            var contactWithMaxId = vm.contacts.reduce(contactWithMaxIdReduceCallback);
             return contactWithMaxId.id + 1;
         }
 
@@ -65,14 +66,14 @@
 
         function addNewContact() {
             contactsGateway
-                .addContact($scope.contact)
+                .addContact(vm.contact)
                 .then(addNewContactSuccessHandler);
         }
 
         function addNewContactSuccessHandler(data) {
-            $scope.contacts.push(data);
+            vm.contacts.push(data);
 
-            $scope.contact = {};
+            vm.contact = {};
 
             $state.go('contacts');
         }
@@ -89,15 +90,15 @@
 
             var contactIndexToDelete;
 
-            for (var contactIndex = 0; contactIndex <= $scope.contacts.length; contactIndex++) {
-                var currentContact = $scope.contacts[contactIndex];
+            for (var contactIndex = 0; contactIndex <= vm.contacts.length; contactIndex++) {
+                var currentContact = vm.contacts[contactIndex];
                 if (currentContact.id === contactId) {
                     contactIndexToDelete = contactIndex;
                     break;
                 }
             }
 
-            $scope.contacts.splice(contactIndexToDelete, 1);
+            vm.contacts.splice(contactIndexToDelete, 1);
             $state.go('contacts');
         }
 
@@ -105,7 +106,7 @@
          * @param {Object} contact
          */
         function editContact(contact) {
-            $scope.contact = contact;
+            vm.contact = contact;
             var modalInstance = $uibModal.open({
                 backdrop: 'static',
                 templateUrl: '/app/partials/edit.html',
@@ -114,7 +115,7 @@
                 size: 'md',
                 resolve: {
                     contact: function () {
-                        return $scope.contact;
+                        return vm.contact;
                     }
                 }
             });
@@ -128,7 +129,7 @@
         }
 
         function confirmContactChangesHandler() {
-            if (angular.isDefined($scope.contact.id)) {
+            if (angular.isDefined(vm.contact.id)) {
                 updateContact();
             } else {
                 createContact();
@@ -137,20 +138,20 @@
 
         function updateContact() {
             contactsGateway
-                .saveContact($scope.contact)
+                .saveContact(vm.contact)
                 .then(updateContactSuccessHandler, updateContactFailureHandler);
         }
 
         function createContact() {
             contactsGateway
-                .addContact($scope.contact)
+                .addContact(vm.contact)
                 .then(addContactSuccessHandler, addContactFailureHandler);
 
         }
 
         function addContactSuccessHandler() {
-            $scope.contact.id = getNextAvailableId();
-            $scope.contacts.push($scope.contact);
+            vm.contact.id = getNextAvailableId();
+            vm.contacts.push(vm.contact);
         }
 
         function addContactFailureHandler() {
@@ -158,11 +159,11 @@
         }
 
         function updateContactSuccessHandler() {
-            console.info($scope.contact);
-            for (var i = 0; i < $scope.contacts.length; i++) {
-                var contact = $scope.contacts[i];
-                if (contact.id === $scope.contact.id) {
-                    $scope.contacts[i] = $scope.contact; // API do not persist so we fake changes in list of contacts
+            console.info(vm.contact);
+            for (var i = 0; i < vm.contacts.length; i++) {
+                var contact = vm.contacts[i];
+                if (contact.id === vm.contact.id) {
+                    vm.contacts[i] = vm.contact; // API do not persist so we fake changes in list of contacts
                     break;
                 }
             }
@@ -171,22 +172,6 @@
 
         function updateContactFailureHandler() {
             console.error('could not updated contact');
-        }
-
-        function showAddNewContactForm() {
-            var modalInstance = $uibModal.open({
-                backdrop: 'static',
-                templateUrl: '/app/partials/add-contact.html',
-                controller: 'ModalContactController',
-                controllerAs: 'vm',
-                size: 'md',
-                resolve: {
-                    contact: function () {
-                        return $scope.contact;
-                    }
-                }
-            });
-
         }
     }
 })();
