@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('contactsApp')
-        .controller('ModalContactController', controllerFn);
+        .controller('ContactController', controllerFn);
 
     function controllerFn(contact, $log, $uibModalInstance) {
         var vm = this;
