@@ -15,11 +15,11 @@
         <td>{{contact.name}}</td>
         <td>{{contact.username}}</td>
         <td>
-            <a ui-sref="contacts.detail({contactId: contact.id})" ng-click="showContact(contact)"
+            <a ui-sref="contacts.preview({id: contact.id})" ng-click="showContact(contact)"
                class="btn btn-default">Detail</a>
         </td>
         <td>
-            <a ui-sref="contacts.edit({editId: contact.id})" class="btn btn-primary" ng-click="editContact(contact)">
+            <a ui-sref="contacts.edit({id: contact.id})" class="btn btn-primary" ng-click="editContact(contact)">
                 <i class="fa fa-pencil" aria-hidden="true"></i>{{contact.id}}</a>
             <a class="btn btn-danger" ng-click="deleteContact(contact.id)">
                 <i class="fa fa-trash" aria-hidden="true"></i></a>
@@ -28,6 +28,6 @@
     </tbody>
 </table>
 
-<a class="btn btn-success" ng-click="showAddNewContactForm()"><i class="fa fa-user" aria-hidden="true"></i>  Add New Contact</a>
+<a class="btn btn-success" ui-sref="contacts.add" ng-click="editContact({})"><i class="fa fa-user" aria-hidden="true"></i>  Add New Contact</a>
 
 

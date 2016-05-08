@@ -11,23 +11,27 @@
             requireBase: false
         });
 
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/contacts');
+
+        var contactsTemplateUrl = '/app/partials/contacts.html';
+        var contactsController = 'ContactsController';
 
         $stateProvider
 
             .state('contacts', {
-                url: '/',
-                templateUrl: '/app/partials/contacts.html',
-                controller: 'ContactsController'
+                url: '/contacts',
+                templateUrl: contactsTemplateUrl,
+                controller: contactsController
             })
-            .state('contacts.detail', {
-                url: '/:contactId'
+
+            .state('contacts.preview', {
+                url: '/:id/preview'
             })
             .state('contacts.edit', {
-                url: '/:editId'
+                url: '/:id/edit'
             })
-            .state('add', {
-                url: '/add-contact'
+            .state('contacts.add', {
+                url: '/add'
             });
     }
 })();

@@ -5,22 +5,12 @@
         .controller('ContactsController', controllerFn);
 
     function controllerFn(contactsGateway, $scope, $state, $uibModal) {
-        //$scope.contact = {
-        //    "name": "",
-        //    "username": "",
-        //    "email": "",
-        //    "address": {
-        //        "street": "",
-        //        "city": ""
-        //    },
-        //    "phone": ""
-        //};
+
         $scope.contacts = [];
         $scope.addNewContact = addNewContact;
         $scope.deleteContact = deleteContact;
         $scope.editContact = editContact;
         $scope.getNextAvailableId = getNextAvailableId;
-        $scope.saveContact = saveContact;
         $scope.showContact = showContact;
         $scope.showAddNewContactForm = showAddNewContactForm;
 
@@ -53,7 +43,7 @@
          * @param {Object} contact
          */
         function showContact(contact) {
-            $uibModal.open({
+            var showModal = $uibModal.open({
                 backdrop: 'static',
                 templateUrl: '/app/partials/contacts-detail.html',
                 controller: 'ModalContactController',
@@ -65,6 +55,12 @@
                     }
                 }
             });
+
+            showModal.result.finally(showContactFinal);
+
+            function showContactFinal() {
+                $state.go('contacts');
+            }
         }
 
         function addNewContact() {
@@ -122,20 +118,46 @@
                     }
                 }
             });
-            modalInstance.result.then(confirmContactChangesHandler);
+            modalInstance.result
+                .then(confirmContactChangesHandler)
+                .finally(editContactFinal);
+
+            function editContactFinal() {
+                $state.go('contacts');
+            }
         }
 
         function confirmContactChangesHandler() {
-            saveContact();
+            if (angular.isDefined($scope.contact.id)) {
+                updateContact();
+            } else {
+                createContact();
+            }
         }
 
-        function saveContact() {
+        function updateContact() {
             contactsGateway
                 .saveContact($scope.contact)
-                .then(saveContactSuccessHandler, saveContactFailureHandler);
+                .then(updateContactSuccessHandler, updateContactFailureHandler);
         }
 
-        function saveContactSuccessHandler() {
+        function createContact() {
+            contactsGateway
+                .addContact($scope.contact)
+                .then(addContactSuccessHandler, addContactFailureHandler);
+
+        }
+
+        function addContactSuccessHandler() {
+            $scope.contact.id = getNextAvailableId();
+            $scope.contacts.push($scope.contact);
+        }
+
+        function addContactFailureHandler() {
+            console.error('could not created contact');
+        }
+
+        function updateContactSuccessHandler() {
             console.info($scope.contact);
             for (var i = 0; i < $scope.contacts.length; i++) {
                 var contact = $scope.contacts[i];
@@ -144,11 +166,11 @@
                     break;
                 }
             }
-            console.info('contact saved!');
+            console.info('contact updated successfully!');
         }
 
-        function saveContactFailureHandler() {
-            console.error('could not save contact');
+        function updateContactFailureHandler() {
+            console.error('could not updated contact');
         }
 
         function showAddNewContactForm() {
