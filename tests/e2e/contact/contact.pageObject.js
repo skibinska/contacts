@@ -20,6 +20,10 @@
 
             this.saveButton.click();
         };
+
+        //this.editContact = function (name) {
+        //    this.name.getText();
+        //};
     };
 
     module.exports = AddOrEditContact;

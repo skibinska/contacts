@@ -6,11 +6,17 @@ exports.config = {
     // Spec patterns are relative to the configuration file location passed
     // to protractor (here protractor.conf.js).
     // They may include glob patterns.
-    specs: ['test/e2e/**/*.js'],
+    specs: ['tests/e2e/**/*.js'],
 
     // Capabilities to be passed to the webdriver instance.
     capabilities: {
         'browserName': 'chrome'
+    },
+
+    suites: {
+        contacts: ['tests/e2e/contacts/**/*.js'],
+        contact: ['tests/e2e/contact/**/*.js'],
+        search: ['tests/e2e/search/**/*.js']
     },
 
     // A base URL for your application under test. Calls to protractor.get()

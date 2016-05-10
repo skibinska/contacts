@@ -4,8 +4,8 @@
         this.searchInput = element(by.model('search'));
         this.allContacts = element.all(by.repeater('contact in vm.contacts'));
 
-        this.findInAllContacts = function (phrase) {
-            this.searchInput.sendKeys(phrase);
+        this.findInAllContacts = function (word) {
+            this.searchInput.sendKeys(word);
         };
     };
 

@@ -2,7 +2,7 @@
 
 var Search = require('./search.pageObject.js');
 
-fdescribe('search contacts', function () {
+describe('search contacts', function () {
 
     var search = new Search();
 
