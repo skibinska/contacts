@@ -6,7 +6,7 @@ exports.config = {
     // Spec patterns are relative to the configuration file location passed
     // to protractor (here protractor.conf.js).
     // They may include glob patterns.
-    specs: ['test/e2e/*.spec.js'],
+    specs: ['test/e2e/*.js'],
 
     // Capabilities to be passed to the webdriver instance.
     capabilities: {
