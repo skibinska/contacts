@@ -1,0 +1,22 @@
+{
+  "name": "contacts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skibinska/contacts.git"
+  },
+  "author": "skibinska",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skibinska/contacts/issues"
+  },
+  "homepage": "https://github.com/skibinska/contacts#readme",
+  "devDependencies": {
+    "protractor": "^3.3.0"
+  }
+}

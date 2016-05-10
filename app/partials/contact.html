@@ -4,106 +4,154 @@
             <h2 class="modal-title text-center">Edit Contact</h2>
         </div>
         <div class="modal-body">
-            <form name="vm.editForm" novalidate>
-                <label class="control-label">Name:</label>
-                <input
-                        class="form-control"
-                        name="name"
-                        ng-minlength="3"
-                        ng-model="vm.contact.name"
-                        ng-required="true"
-                        type="text"
-                >
-                <div class="help-block error" ng-show="vm.editForm.name.$invalid &&
-                    (vm.editForm.name.$touched || vm.editForm.$submitted)">
+            <form name="vm.editForm" class="form-horizontal" novalidate>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label class="control-label col-xs-2">Name:</label>
+                            <div class="col-xs-10">
+                                <input
+                                        class="form-control"
+                                        name="name"
+                                        ng-minlength="3"
+                                        ng-model="vm.contact.name"
+                                        ng-required="true"
+                                        type="text"
+                                >
+                                <div class="help-block error" ng-show="vm.editForm.name.$invalid &&
+                                        (vm.editForm.name.$touched || vm.editForm.$submitted)">
 
-                    <span ng-show="vm.editForm.name.$error.required">
-                    Please type in your Name.
-                    </span>
-                    <span ng-show="vm.editForm.name.$error.minlength">
-                    Name must be at least 3 characters long.
-                    </span>
-                </div>
-                <label class="control-label">Address street:</label>
-                <input
-                        class="form-control"
-                        name="street"
-                        ng-minlength="3"
-                        ng-model="vm.contact.address.street"
-                        ng-required="true"
-                        type="text"
-                >
-                <div class="help-block error" ng-show="vm.editForm.street.$invalid &&
-                    (vm.editForm.street.$touched || vm.editForm.$submitted)">
+                                        <span ng-show="vm.editForm.name.$error.required">
+                                        Please type in your Name.
+                                        </span>
+                                        <span ng-show="vm.editForm.name.$error.minlength">
+                                        Name must be at least 3 characters long.
+                                        </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-2">Username:</label>
+                            <div class="col-xs-10">
+                                <input
+                                        class="form-control"
+                                        name="username"
+                                        ng-minlength="3"
+                                        ng-model="vm.contact.username"
+                                        ng-required="true"
+                                        type="text"
+                                >
+                                <div class="help-block error" ng-show="vm.editForm.username.$invalid &&
+                                (vm.editForm.username.$touched || vm.editForm.$submitted)">
 
-                    <span ng-show="vm.editForm.street.$error.required">
-                    Please type in your Street.
-                    </span>
-                    <span ng-show="vm.editForm.street.$error.minlength">
-                    Street must be at least 3 characters long.
-                    </span>
-                </div>
-                <label class="control-label">Address city:</label>
-                <input
-                        class="form-control"
-                        name="city"
-                        ng-minlength="3"
-                        ng-model="vm.contact.address.city"
-                        ng-required="true"
-                        type="text"
-                >
-                <div class="help-block error" ng-show="vm.editForm.city.$invalid &&
-                    (vm.editForm.city.$touched || vm.editForm.$submitted)">
+                                    <span ng-show="vm.editForm.username.$error.required">
+                                    Please type in your Username.
+                                    </span>
+                                    <span ng-show="vm.editForm.username.$error.minlength">
+                                    Username must be at least 3 characters long.
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-2">Address street:</label>
+                            <div class="col-xs-10">
+                                <input
+                                        class="form-control"
+                                        name="street"
+                                        ng-minlength="3"
+                                        ng-model="vm.contact.address.street"
+                                        ng-required="true"
+                                        type="text"
+                                >
+                                <div class="help-block error" ng-show="vm.editForm.street.$invalid &&
+                                            (vm.editForm.street.$touched || vm.editForm.$submitted)">
 
-                    <span ng-show="vm.editForm.city.$error.required">
-                    Please type in your City.
-                    </span>
-                    <span ng-show="vm.editForm.city.$error.minlength">
-                    City must be at least 3 characters long.
-                    </span>
-                </div>
-                <label class="control-label">Email:</label>
-                <input
-                        class="form-control"
-                        name="email"
-                        ng-minlength="3"
-                        ng-model="vm.contact.email"
-                        ng-required="true"
-                        type="email"
-                >
-                <div class="help-block error" ng-show="vm.editForm.email.$invalid &&
-                    (vm.editForm.email.$touched || vm.editForm.$submitted)">
+                                        <span ng-show="vm.editForm.street.$error.required">
+                                        Please type in your Street.
+                                        </span>
+                                        <span ng-show="vm.editForm.street.$error.minlength">
+                                        Street must be at least 3 characters long.
+                                        </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-2">Address city:</label>
+                            <div class="col-xs-10">
+                                <input
+                                        class="form-control"
+                                        name="city"
+                                        ng-minlength="3"
+                                        ng-model="vm.contact.address.city"
+                                        ng-required="true"
+                                        type="text"
+                                >
+                                <div class="help-block error" ng-show="vm.editForm.city.$invalid &&
+                                    (vm.editForm.city.$touched || vm.editForm.$submitted)">
 
-                    <span ng-show="vm.editForm.email.$error.required">
-                    Please type in your Email.
-                    </span>
-                    <span ng-show="vm.editForm.email.$error.minlength">
-                    Email must be at least 3 characters long.
-                    </span>
-                </div>
-                <label class="control-label">Phone:</label>
-                <input
-                        class="form-control"
-                        name="phone"
-                        ng-minlength="3"
-                        ng-model="vm.contact.phone"
-                        ng-required="true"
-                        type="text"
-                >
-                <div class="help-block error" ng-show="vm.editForm.phone.$invalid &&
-                    (vm.editForm.phone.$touched || vm.editForm.$submitted)">
+                                    <span ng-show="vm.editForm.city.$error.required">
+                                    Please type in your City.
+                                    </span>
+                                    <span ng-show="vm.editForm.city.$error.minlength">
+                                    City must be at least 3 characters long.
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-2">Email:</label>
+                            <div class="col-xs-10">
+                                <input
+                                        class="form-control"
+                                        name="email"
+                                        ng-minlength="3"
+                                        ng-model="vm.contact.email"
+                                        ng-required="true"
+                                        type="email"
+                                >
+                                <div class="help-block error" ng-show="vm.editForm.email.$invalid &&
+                                    (vm.editForm.email.$touched || vm.editForm.$submitted)">
 
-                    <span ng-show="vm.editForm.phone.$error.required">
-                    Please type in your Phone.
-                    </span>
-                    <span ng-show="vm.editForm.phone.$error.minlength">
-                    Phone must be at least 3 characters long.
-                    </span>
+                                    <span ng-show="vm.editForm.email.$error.required">
+                                    Please type in your Email.
+                                    </span>
+                                    <span ng-show="vm.editForm.email.$error.minlength">
+                                    Email must be at least 3 characters long.
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-2">Phone:</label>
+                            <div class="col-xs-10">
+                                <input
+                                        class="form-control"
+                                        name="phone"
+                                        ng-minlength="3"
+                                        ng-model="vm.contact.phone"
+                                        ng-required="true"
+                                        type="text"
+                                >
+                                <div class="help-block error" ng-show="vm.editForm.phone.$invalid &&
+                                    (vm.editForm.phone.$touched || vm.editForm.$submitted)">
+
+                                    <span ng-show="vm.editForm.phone.$error.required">
+                                    Please type in your Phone.
+                                    </span>
+                                    <span ng-show="vm.editForm.phone.$error.minlength">
+                                    Phone must be at least 3 characters long.
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
         <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" ng-click="vm.confirm()"><i class="fa fa-floppy-o" aria-hidden="true"></i>
+            <button type="submit" class="btn btn-primary" ng-click="vm.confirm()"><i class="fa fa-floppy-o"
+                                                                                     aria-hidden="true"></i>
                 Save
             </button>
             <button class="btn btn-default" ng-click="vm.cancel()">Cancel</button>

@@ -1,15 +1,41 @@
 <div class="modal-fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-header">
-
-            <h2 class="modal-title text-center">Contact Detail</h2>
+            <h2 class="modal-title text-center">{{vm.contact.name}}</h2>
         </div>
         <div class="modal-body">
-            <p><label>Name:</label> {{vm.contact.name}}</p>
-            <p><label>Address:</label> {{vm.contact.address.street}}, {{vm.contact.address.city}}</p>
-            <p><label>Email:</label> {{vm.contact.email}}</p>
-            <p><label>Phone:</label> {{vm.contact.phone}}</p>
-        </div>
+            <div class="form-horizontal">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label class="control-label col-xs-2">Username:</label>
+                            <div class="col-xs-10">
+                                <p class="form-control-static">{{vm.contact.username}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-2">Address:</label>
+                            <div class="col-xs-10">
+                                <p class="form-control-static">{{vm.contact.address.street}},
+                                    {{vm.contact.address.city}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-2">Email:</label>
+                            <div class="col-xs-10">
+                                <p class="form-control-static">{{vm.contact.email}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-2">Phone:</label>
+                            <div class="col-xs-10">
+                                <p class="form-control-static">{{vm.contact.phone}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- modal body -->
         <div class="modal-footer">
             <button class="btn btn-primary" ng-click="vm.cancel()">OK</button>
         </div>
