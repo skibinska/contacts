@@ -1,8 +1,8 @@
 'use strict';
-xdescribe('contacts.config: ', function () {
+describe('contacts.config: ', function () {
 
     beforeEach(function () {
-        browser.get('http://local.contacts.com/');
+        browser.get(browser.baseUrl);
     });
 
     describe('page loading', function () {
@@ -33,5 +33,4 @@ xdescribe('contacts.config: ', function () {
             expect(browser.getLocationAbsUrl()).toContain('/contacts');
         });
     });
-
 });

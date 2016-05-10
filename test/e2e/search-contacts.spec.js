@@ -1,9 +1,8 @@
 'use strict';
-xdescribe('search contacts', function () {
-    beforeEach(function () {
-        browser.ignoreSynchronization = true;
+describe('search contacts', function () {
 
-        browser.get('http://local.contacts.com/');
+    beforeEach(function () {
+        browser.get(browser.baseUrl);
     });
 
     it('should render at least one result', function () {

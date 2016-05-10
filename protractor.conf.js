@@ -29,6 +29,7 @@ exports.config = {
     // How long to wait for a page to load.
     getPageTimeout: 10000,
 
+    // Test framework to use.
     framework: 'jasmine',
 
     // Options to be passed to Jasmine-node.
