@@ -1,5 +1,10 @@
 'use strict';
+
+var Contacts = require('./contacts.pageObject.js');
+
 describe('contacts.config: ', function () {
+
+    var contacts = new Contacts();
 
     beforeEach(function () {
         browser.get(browser.baseUrl);
@@ -10,19 +15,16 @@ describe('contacts.config: ', function () {
             expect(browser.getLocationAbsUrl()).toContain('/contacts');
         });
         it('should display all contacts', function () {
-            var contacts = element.all(by.repeater('contact in vm.contacts'));
-            expect(contacts.count()).toBe(10);
+            expect(contacts.allContacts.count()).toBe(10);
         });
         it('should display Add New Contact button', function () {
-            var button = element(by.linkText(' Add New Contact'));
-            expect(button).toBeDefined();
+            expect(contacts.addContactButton).toBeDefined();
         });
     });
 
     describe('navigation', function () {
         it('should navigate to contact modal on click of the detail button', function () {
-            var detail = element(by.linkText('Detail'));
-            detail.click();
+            contacts.detailButton.click();
             expect(browser.getLocationAbsUrl()).toContain('/preview');
         });
     });

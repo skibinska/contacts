@@ -1,12 +1,12 @@
 'use strict';
 
-var AddOrEditContact = require('./contact-modal.js');
+var AddOrEditContact = require('./contact.pageObject.js');
 
-fdescribe('contacts-gateway service: ', function () {
+describe('contacts-gateway service: ', function () {
 
     var addOrEditContact = new AddOrEditContact();
 
-    var addNewContactButton = element(by.css('[ng-click="vm.editContact({})"'));
+    var addNewContactButton = element(by.css('[ng-click="vm.editContact({})"]'));
     var contacts = element.all(by.repeater('contact in vm.contacts'));
     var modal = element(by.id('contact'));
 
