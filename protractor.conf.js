@@ -16,7 +16,8 @@ exports.config = {
     suites: {
         contacts: ['tests/e2e/contacts/**/*.js'],
         contact: ['tests/e2e/contact/**/*.js'],
-        search: ['tests/e2e/search/**/*.js']
+        search: ['tests/e2e/search/**/*.js'],
+        test: ['tests/e2e/test/**/*.js']
     },
 
     // A base URL for your application under test. Calls to protractor.get()
@@ -41,6 +42,6 @@ exports.config = {
     // Options to be passed to Jasmine-node.
     jasmineNodeOpts: {
         showColors: true, // Use colors in the command line report.
-        defaultTimeoutInterval: 30000
+        defaultTimeoutInterval: 2500000
     }
 };

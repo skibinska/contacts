@@ -2,7 +2,7 @@
 
 var AddOrEditContact = require('./contact.pageObject.js');
 
-fdescribe('contacts-gateway service: ', function () {
+describe('contacts-gateway service: ', function () {
 
     var addOrEditContact = new AddOrEditContact();
 
