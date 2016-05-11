@@ -23,16 +23,9 @@ describe('contacts-gateway service: ', function () {
         });
         it('should create a new contact', function () {
             addNewContactButton.click();
-
             addOrEditContact.addContact('Ewelina Skibinska', 'eweluszek', 'Brunswick', 'London', 'sk@gmail.com', '77777777');
-
             expect(contacts.count()).toBe(11);
             browser.sleep(5000); //used just to see the contact list update
         });
-    });
-
-    describe('update contact', function () {
-
-
     });
 });

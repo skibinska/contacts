@@ -11,6 +11,10 @@ describe('contacts.config: ', function () {
     });
 
     describe('page loading', function () {
+        it('should check the page title', function () {
+            var browserTitle = browser.getTitle();
+            expect(browserTitle).toEqual('contacts');
+        });
         it('should default to contacts page', function () {
             expect(browser.getLocationAbsUrl()).toContain('/contacts');
         });

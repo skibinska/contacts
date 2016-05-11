@@ -1,5 +1,7 @@
 'use strict';
-describe('update contact', function () {
+var AddOrEditContact = require('./contact.pageObject.js');
+fdescribe('Contact ', function () {
+    var addOrEditContact = new AddOrEditContact();
 
     var addNewContactButton = element(by.css('[ng-click="vm.editContact({})"]'));
     var contacts = element.all(by.repeater('contact in vm.contacts'));
@@ -16,25 +18,15 @@ describe('update contact', function () {
     });
 
     describe('should update added contact', function () {
-        var name = element(by.model('vm.contact.name'));
-        var username = element(by.model('vm.contact.username'));
-        var street = element(by.model('vm.contact.address.street'));
-        var city = element(by.model('vm.contact.address.city'));
-        var email = element(by.model('vm.contact.email'));
-        var phone = element(by.model('vm.contact.phone'));
+
         var searchInput = element(by.model('search'));
 
-        it('should add and then update new contact', function () {
+        it('should add, find and then update new contact', function () {
             // add a new contact
             addNewContactButton.click();
-            name.sendKeys('Ewelina Skibinska');
-            username.sendKeys('eweluszek');
-            street.sendKeys('Brunswick');
-            city.sendKeys('London');
-            email.sendKeys('sk@gmail.com');
-            phone.sendKeys('1234567');
-            saveButton.click();
-            browser.sleep(3000);
+
+            addOrEditContact.addContact('Ewelina Skibinska', 'eweluszek', 'Brunswick', 'London', 'sk@gmail.com', '77777777');
+            browser.sleep(2000);
 
             //search new contact
             searchInput.sendKeys('Ewelina');
@@ -56,15 +48,15 @@ describe('update contact', function () {
                             detailButton.click().then(function () {
                                 expect(modalDetails.isDisplayed()).toBe(true);
 
-                            //    console.log(closeModal.getTagName());
-                            //    //closeModal.click();
-                            //
-                            //    //delete contact
-                            //    deleteButton.click();
-                            //
-                            //    //clear search input
-                            //    searchInput.clear();
-                            //    expect(contacts.count()).toBe(10);
+                                //    console.log(closeModal.getTagName());
+                                //    //closeModal.click();
+                                //
+                                //    //delete contact
+                                //    deleteButton.click();
+                                //
+                                //    //clear search input
+                                //    searchInput.clear();
+                                //    expect(contacts.count()).toBe(10);
                             });
                         });
                     });
