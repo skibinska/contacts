@@ -13,6 +13,10 @@
             return browser.getTitle();
         };
 
+        this.clearInput = function () {
+            this.searchInput.clear();
+        };
+
         this.countContacts = function () {
             return this.allContacts.count();
         };
@@ -27,6 +31,9 @@
 
         this.findInAllContacts = function (word) {
             this.searchInput.sendKeys(word);
+        };
+        this.findInUrl = function () {
+            return browser.getLocationAbsUrl();
         };
 
         this.openAddForm = function () {

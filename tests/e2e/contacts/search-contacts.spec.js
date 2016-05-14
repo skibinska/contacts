@@ -12,10 +12,10 @@ describe('search contacts', function () {
 
     it('should render at least one result', function () {
         search.findInAllContacts('ervin');
-        expect(search.allContacts.count()).toBe(1);
+        expect(search.countContacts()).toBe(1);
         browser.sleep(2000);
 
-        search.searchInput.clear();
-        expect(search.allContacts.count()).toBe(10);
+        search.clearInput();
+        expect(search.countContacts()).toBe(10);
     });
 });
