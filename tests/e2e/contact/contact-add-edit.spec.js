@@ -1,6 +1,9 @@
 'use strict';
+
 var AddOrEditContact = require('./contact.pageObject.js');
+
 fdescribe('Contact ', function () {
+
     var addOrEditContact = new AddOrEditContact();
 
     var addNewContactButton = element(by.css('[ng-click="vm.editContact({})"]'));
@@ -36,31 +39,34 @@ fdescribe('Contact ', function () {
                 browser.sleep(3000);
 
                 //edit new contact
-                editButton.click().then(function () {
-                    var contactNameEdit = element(by.model('vm.contact.name'));
-                    contactNameEdit.clear().then(function () {
-                        contactNameEdit.sendKeys('Ewelina Maria Pudlo').then(function () {
-                            saveButton.click();
-                            expect(contactName.getText()).toEqual('Ewelina Maria Pudlo');
-                            browser.sleep(3000);
 
-                            //show contact details
-                            detailButton.click().then(function () {
-                                expect(modalDetails.isDisplayed()).toBe(true);
+                //editButton.click().then(function () {
+                //    var contactNameEdit = element(by.model('vm.contact.name'));
+                //    contactNameEdit.clear().then(function () {
+                //        contactNameEdit.sendKeys('Ewelina Maria Pudlo').then(function () {
+                //            saveButton.click();
 
-                                //    console.log(closeModal.getTagName());
-                                //    //closeModal.click();
-                                //
-                                //    //delete contact
-                                //    deleteButton.click();
-                                //
-                                //    //clear search input
-                                //    searchInput.clear();
-                                //    expect(contacts.count()).toBe(10);
-                            });
-                        });
-                    });
+                addOrEditContact.editName('Ewelina Maria Pudlo');
+                expect(contactName.getText()).toEqual('Ewelina Maria Pudlo');
+                browser.sleep(3000);
+
+                //show contact details
+                detailButton.click().then(function () {
+                    expect(modalDetails.isDisplayed()).toBe(true);
+
+                    //    console.log(closeModal.getTagName());
+                    //    //closeModal.click();
+                    //
+                    //    //delete contact
+                    //    deleteButton.click();
+                    //
+                    //    //clear search input
+                    //    searchInput.clear();
+                    //    expect(contacts.count()).toBe(10);
                 });
+                //        });// tu
+                //    });//tu
+                //}); // tu
             });
         });
     });

@@ -15,9 +15,7 @@ exports.config = {
 
     suites: {
         contacts: ['contacts/**/*.js'],
-        contact: ['contact/**/*.js'],
-        search: ['search/**/*.js'],
-        test: ['test/**/*.js']
+        contact: ['contact/**/*.js']
     },
 
     // A base URL for your application under test. Calls to protractor.get()

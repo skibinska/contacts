@@ -1,10 +1,10 @@
 'use strict';
 
-var Search = require('./search.pageObject.js');
+var Contacts = require('./contacts.pageObject.js');
 
 describe('search contacts', function () {
 
-    var search = new Search();
+    var search = new Contacts();
 
     beforeEach(function () {
         browser.get(browser.baseUrl);
@@ -13,7 +13,7 @@ describe('search contacts', function () {
     it('should render at least one result', function () {
         search.findInAllContacts('ervin');
         expect(search.allContacts.count()).toBe(1);
-        browser.sleep(3000);
+        browser.sleep(2000);
 
         search.searchInput.clear();
         expect(search.allContacts.count()).toBe(10);
