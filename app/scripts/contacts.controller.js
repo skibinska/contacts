@@ -100,6 +100,14 @@
             }
 
             vm.contacts.splice(contactIndexToDelete, 1);
+
+            toaster.clear();
+            toaster.pop({
+                type: 'success',
+                title: 'Success',
+                body: 'contact was deleted successfully',
+                showCloseButton: true
+            });
             $state.go('contacts');
         }
 
@@ -152,27 +160,54 @@
                     break;
                 }
             }
+            toaster.clear();
+            toaster.pop({
+                type: 'success',
+                title: 'Success',
+                body: 'contact was updated successfully',
+                showCloseButton: true
+            });
             console.info('contact updated successfully!');
         }
 
         function updateContactFailureHandler() {
             console.error('could not updated contact');
+            toaster.clear();
+            toaster.pop({
+                type: 'error',
+                title: 'Error',
+                body: 'could not updated contact',
+                showCloseButton: true
+            });
         }
 
         function createContact() {
             contactsGateway
                 .addContact(vm.contact)
                 .then(addContactSuccessHandler, addContactFailureHandler);
-
         }
 
         function addContactSuccessHandler() {
             vm.contact.id = getNextAvailableId();
             vm.contacts.push(vm.contact);
+            toaster.clear();
+            toaster.pop({
+                type: 'success',
+                title: 'Success',
+                body: 'contact was added successfully',
+                showCloseButton: true
+            });
         }
 
         function addContactFailureHandler() {
             console.error('could not created contact');
+            toaster.clear();
+            toaster.pop({
+                type: 'error',
+                title: 'Error',
+                body: 'could not created contact',
+                showCloseButton: true
+            });
         }
     }
 })();
