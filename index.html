@@ -27,18 +27,23 @@
                 <li><a ui-sref="contacts" ui-sref-active="active">Home</a></li>
             </ul>
             <form class="navbar-form navbar-right" role="search">
-                <input type="text" class="form-control" placeholder="Search" ng-model="search">
+                <input type="text" class="form-control" placeholder="Search..." ng-model="search">
             </form>
         </div>
     </div>
 </nav>
 
+<div class="container">
 <toaster-container
         toaster-options="{ 'limit': 3, 'position-class': 'toast-top-right', 'animation-class': 'toast-top-right'}"></toaster-container>
-
-<div class="container">
     <div ui-view></div>
 </div>
+
+<footer class="navbar-inverse navbar-fixed-bottom">
+    <div class="container-fluid">
+        <p class="text-muted"><i class="fa fa-copyright" aria-hidden="true"></i>2016 Ewelina Skibinska</p>
+    </div>
+</footer>
 
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/angular/angular.js"></script>

@@ -1,7 +1,62 @@
 .btn,
 .form-control {
-    border-radius: 0;
+     -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+             border-radius: 0;
 }
+
+input[type="text"] {
+    vertical-align: middle;
+    border: 1px solid rgba(0, 0, 0, .2)
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+    color: #111;
+    border-color: rgba(0, 0, 0, .7);
+    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+       -moz-box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+            box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+    outline: none;
+}
+
 .error {
     color: red;
+}
+
+.add-contact {
+    margin-top: 20px;
+    background: #fff;
+    color: #212121;
+    border: 1px solid #212121;
+    font-weight: 400;
+    border-radius: 0px;
+    padding: 10px 25px;
+    float: left;
+    -webkit-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    -ms-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease;
+}
+
+.add-contact:hover {
+    color: #fff;
+    background: #212121;
+}
+
+.add-contact i {
+    margin-right: 10px;
+}
+
+thead th{
+    font-size: 20px;
+}
+
+footer {
+    height: 50px;
+}
+footer p {
+    padding-top: 10px;
+    text-align: center;
 }
