@@ -1,31 +1,38 @@
 'use strict';
 
 var AddOrEditContact = require('./contact.pageObject.js');
+var Contacts = require('../contacts/contacts.pageObject.js');
 
-describe('contacts-gateway service: ', function () {
+fdescribe('contacts-gateway service: ', function () {
 
-    var addOrEditContact = new AddOrEditContact();
-
-    var addNewContactButton = element(by.css('[ng-click="vm.editContact({})"]'));
-    var contacts = element.all(by.repeater('contact in vm.contacts'));
-    var editButton = element(by.css('[ng-click="vm.editContact(contact)"]'));
-    var modal = element(by.id('contact'));
+    var contact = new AddOrEditContact();
+    var contacts = new Contacts();
 
     beforeEach(function () {
         browser.get(browser.baseUrl);
     });
 
-    describe('add new contact', function () {
-
-        it('should display modal', function () {
-            addNewContactButton.click();
-            expect(modal.isDisplayed()).toBe(true);
+    describe('edit contact', function () {
+        it('should edit contact name', function () {
+            contacts.openEditForm(0);
+            expect(contact.contactName(0)).toBe('Chelsey Dietrich');
+            contact.editName('-Boo');
+            browser.sleep(2000);
+            expect(contact.contactName(0)).toBe('Chelsey Dietrich-Boo');
         });
-        it('should create a new contact', function () {
-            addNewContactButton.click();
-            addOrEditContact.addContact('Ewelina Skibinska', 'eweluszek', 'Brunswick', 'London', 'sk@gmail.com', '77777777');
-            expect(contacts.count()).toBe(11);
-            browser.sleep(5000); //used just to see the contact list update
+    });
+
+    describe('show details', function () {
+        it('should show details on click of detail button', function () {
+            contacts.showDetails(6);
+            expect(contact.contactNameDetail()).toBe('Leanne Graham');
+        });
+    });
+
+    describe('delete contact', function () {
+        it('should delete third contact', function () {
+            contacts.deleteContact(2);
+            expect(contacts.countContacts()).toBe(9);
         });
     });
 });

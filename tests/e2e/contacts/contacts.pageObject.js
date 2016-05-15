@@ -13,8 +13,8 @@
             return browser.getTitle();
         };
 
-        this.clearInput = function () {
-            this.searchInput.clear();
+        this.clearInput = function (input) {
+            return input.clear();
         };
 
         this.countContacts = function () {

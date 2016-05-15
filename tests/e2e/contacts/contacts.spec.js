@@ -46,11 +46,4 @@ describe('contacts.config: ', function () {
             expect(contacts.findInUrl()).toContain('/contacts');
         });
     });
-
-    describe('delete contact', function () {
-        it('should delete third contact', function () {
-            contacts.deleteContact(2);
-            expect(contacts.countContacts()).toBe(9);
-        });
-    });
 });
