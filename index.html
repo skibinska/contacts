@@ -2,34 +2,52 @@
 <html lang="en" ng-app="contactsApp">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>contacts</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/AngularJS-Toaster/toaster.css">
     <link rel="stylesheet" href="app/styles/main.css">
 </head>
 <body>
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" ui-sref="contacts">WebSiteName</a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" ui-sref="contacts">Contacts</a>
         </div>
-        <ul class="nav navbar-nav">
-            <li><a ui-sref="contacts" ui-sref-active="active">Home</a></li>
-        </ul>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a ui-sref="contacts" ui-sref-active="active">Home</a></li>
+            </ul>
+        </div>
         <form class="navbar-form navbar-right" role="search">
             <input type="text" class="form-control" placeholder="Search" ng-model="search">
         </form>
     </div>
 </nav>
+
+<toaster-container
+        toaster-options="{ 'limit': 3, 'position-class': 'toast-top-right', 'animation-class': 'toast-top-right'}"></toaster-container>
+
 <div class="container">
     <div ui-view></div>
 </div>
 
+<script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/AngularJS-Toaster/toaster.js"></script>
 
 <script src="app/scripts/contacts.module.js"></script>
 <script src="app/scripts/contacts.config.js"></script>

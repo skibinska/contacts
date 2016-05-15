@@ -4,7 +4,7 @@
         .module('contactsApp')
         .controller('ContactsController', controllerFn);
 
-    function controllerFn(contactsGateway, $log, $state, $uibModal) {
+    function controllerFn(contactsGateway, $log, $state, $uibModal, toaster) {
 
         var vm = this;
 
