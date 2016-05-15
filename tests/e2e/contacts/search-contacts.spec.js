@@ -2,7 +2,7 @@
 
 var Contacts = require('./contacts.pageObject.js');
 
-fdescribe('search contacts', function () {
+describe('search contacts', function () {
 
     var search = new Contacts();
 
@@ -15,7 +15,7 @@ fdescribe('search contacts', function () {
         expect(search.countContacts()).toBe(1);
         browser.sleep(2000);
 
-        search.clearInput(search.searchInput);
+        search.clearSearch();
         expect(search.countContacts()).toBe(10);
     });
 });

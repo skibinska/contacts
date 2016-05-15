@@ -3,7 +3,7 @@
 var AddOrEditContact = require('./contact.pageObject.js');
 var Contacts = require('../contacts/contacts.pageObject.js');
 
-fdescribe('contacts-gateway service: ', function () {
+describe('contacts-gateway service: ', function () {
 
     var contact = new AddOrEditContact();
     var contacts = new Contacts();
@@ -16,8 +16,8 @@ fdescribe('contacts-gateway service: ', function () {
         it('should edit contact name', function () {
             contacts.openEditForm(0);
             expect(contact.contactName(0)).toBe('Chelsey Dietrich');
-            contact.editName('-Boo');
-            browser.sleep(2000);
+            contact.editName('Chelsey Dietrich-Boo');
+            browser.sleep(3000);
             expect(contact.contactName(0)).toBe('Chelsey Dietrich-Boo');
         });
     });

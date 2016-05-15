@@ -25,18 +25,14 @@
             this.saveButton.click();
         };
 
-        this.getValue = function (input) {
-            return input.getAttribute('value');
+        this.getName = function () {
+            return this.nameInput.getAttribute('value');
         };
 
         this.editName = function (name) {
-            var contactNameEdit = element(by.model('vm.contact.name'));
-            contactNameEdit.sendKeys(name);
+            this.nameInput.clear();
+            this.nameInput.sendKeys(name);
             this.saveButton.click();
-        };
-
-        this.getName = function (index) {
-            this.names.get(index).getText();
         };
 
         this.contactName = function (index) {
@@ -46,7 +42,6 @@
         this.contactNameDetail = function () {
             return this.name.getText();
         };
-
     };
 
     module.exports = AddOrEditContact;

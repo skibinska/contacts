@@ -23,6 +23,9 @@ describe('contacts.config: ', function () {
         it('should display Add New Contact button', function () {
             expect(contacts.addContactButton).toBeDefined();
         });
+        it('should Add New Contact button be present on the website', function () {
+            expect(contacts.addContactButton.isPresent()).toBe(true);
+        });
     });
 
     describe('navigation', function () {
