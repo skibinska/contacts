@@ -31,7 +31,9 @@ describe('contacts-gateway service: ', function () {
 
     describe('delete contact', function () {
         it('should delete third contact', function () {
+            expect(contact.contactName(2)).toBe('Clementine Bauch');
             contacts.deleteContact(2);
+            expect(contact.contactName(2)).toBe('Ervin Howell');
             expect(contacts.countContacts()).toBe(9);
         });
     });

@@ -25,10 +25,6 @@
             this.deleteButtons.get(index).click();
         };
 
-        this.showDetails = function (index) {
-            this.detailButtons.get(index).click();
-        };
-
         this.findInAllContacts = function (word) {
             this.searchInput.sendKeys(word);
         };
@@ -42,6 +38,10 @@
 
         this.openEditForm = function (index) {
             this.editButtons.get(index).click();
+        };
+        
+        this.showDetails = function (index) {
+            this.detailButtons.get(index).click();
         };
     };
 

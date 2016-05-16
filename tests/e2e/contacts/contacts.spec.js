@@ -20,11 +20,8 @@ describe('contacts.config: ', function () {
         it('should display all contacts', function () {
             expect(contacts.countContacts()).toBe(10);
         });
-        it('should display Add New Contact button', function () {
-            expect(contacts.addContactButton).toBeDefined();
-        });
         it('should Add New Contact button be present on the website', function () {
-            expect(contacts.addContactButton.isPresent()).toBe(true);
+            expect(contacts.addContactButton.isPresent()).toBeTruthy();
         });
     });
 

@@ -25,8 +25,12 @@
             this.saveButton.click();
         };
 
-        this.getName = function () {
-            return this.nameInput.getAttribute('value');
+        this.contactName = function (index) {
+            return element(by.repeater('contact in vm.contacts').row(index).column('contact.name')).getText();
+        };
+
+        this.contactNameDetail = function () {
+            return this.name.getText();
         };
 
         this.editName = function (name) {
@@ -35,12 +39,8 @@
             this.saveButton.click();
         };
 
-        this.contactName = function (index) {
-            return element(by.repeater('contact in vm.contacts').row(index).column('contact.name')).getText();
-        };
-
-        this.contactNameDetail = function () {
-            return this.name.getText();
+        this.getName = function () {
+            return this.nameInput.getAttribute('value');
         };
     };
 
