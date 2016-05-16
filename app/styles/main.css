@@ -75,35 +75,73 @@ thead th {
     font-size: 20px;
 }
 
-/*.footer {*/
-/*background-color: #212121;*/
-/*padding-bottom: 10px;*/
-/*padding-top: 10px;*/
-/*margin-top: 20px;*/
-/*text-align: center;*/
-/*position:absolute;*/
-/*bottom:0;*/
-/*left:0;*/
-
-/*}*/
-
 #wrapper {
     min-height: 100%;
     position: relative;
 }
 
 #content {
-    padding-bottom: 100px; /* Height of the footer element */
+    padding-bottom: 120px; /* Height of the footer element */
 }
+
+/***FOOTER****/
 
 #footer {
     background: #212121;
     width: 100%;
-    height: 60px;
+    height: 80px;
     position: absolute;
     bottom: 0;
     left: 0;
 }
+
 #footer p {
-    padding-top: 20px;
+    padding-top: 30px;
+}
+
+.footer-social a.social {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    left: 75%;
+    bottom: 35px;
+    margin: 0 5px;
+    text-align: center;
+    display: inline-block;
+    color: #fff;
+    border: 1px solid #fff;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    -ms-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease;
+}
+
+.footer-social a.social i {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+footer .footer-social a.social:hover {
+    color: #111;
+}
+
+.footer-social a.social:hover {
+    background: #fff;
+}
+
+.footer-social a.social.smaller {
+    width: 10px;
+    height: 10px;
 }

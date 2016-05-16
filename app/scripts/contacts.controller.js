@@ -172,13 +172,13 @@
 
         function updateContactFailureHandler() {
             console.error('could not updated contact');
-            toaster.clear();
-            toaster.pop({
-                type: 'error',
-                title: 'Error',
-                body: 'could not updated contact',
-                showCloseButton: true
-            });
+            //toaster.clear();
+            //toaster.pop({
+            //    type: 'error',
+            //    title: 'Error',
+            //    body: 'could not updated contact',
+            //    showCloseButton: true
+            //});
         }
 
         function createContact() {
