@@ -1,13 +1,19 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
 .btn,
 .form-control {
-     -webkit-border-radius: 0;
-        -moz-border-radius: 0;
-             border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
 }
 
 input[type="text"] {
     vertical-align: middle;
-    border: 1px solid rgba(0, 0, 0, .2)
 }
 
 input[type="text"]:focus,
@@ -15,8 +21,8 @@ input[type="email"]:focus {
     color: #111;
     border-color: rgba(0, 0, 0, .7);
     -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, .3);
-       -moz-box-shadow: 0 0 3px rgba(0, 0, 0, .3);
-            box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+    -moz-box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 3px rgba(0, 0, 0, .3);
     outline: none;
 }
 
@@ -24,13 +30,12 @@ input[type="email"]:focus {
     color: red;
 }
 
-.add-contact {
+.button {
     margin-top: 20px;
     background: #fff;
     color: #212121;
     border: 1px solid #212121;
     font-weight: 400;
-    border-radius: 0px;
     padding: 10px 25px;
     float: left;
     -webkit-transition: all 500ms ease;
@@ -40,23 +45,65 @@ input[type="email"]:focus {
     transition: all 500ms ease;
 }
 
-.add-contact:hover {
+.small-button {
+    background: #fff;
+    color: #212121;
+    border: 1px solid #212121;
+    -webkit-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    -ms-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease;
+}
+
+.button:hover,
+.small-button:hover {
     color: #fff;
     background: #212121;
 }
 
-.add-contact i {
+.button i {
     margin-right: 10px;
 }
 
-thead th{
+thead {
+    background: #212121;
+    color: #fff;
+}
+
+thead th {
     font-size: 20px;
 }
 
-footer {
-    height: 50px;
+/*.footer {*/
+/*background-color: #212121;*/
+/*padding-bottom: 10px;*/
+/*padding-top: 10px;*/
+/*margin-top: 20px;*/
+/*text-align: center;*/
+/*position:absolute;*/
+/*bottom:0;*/
+/*left:0;*/
+
+/*}*/
+
+#wrapper {
+    min-height: 100%;
+    position: relative;
 }
-footer p {
-    padding-top: 10px;
-    text-align: center;
+
+#content {
+    padding-bottom: 100px; /* Height of the footer element */
+}
+
+#footer {
+    background: #212121;
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+#footer p {
+    padding-top: 20px;
 }
