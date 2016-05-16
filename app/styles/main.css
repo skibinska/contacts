@@ -95,7 +95,7 @@ thead th {
     left: 0;
 }
 
-#footer p {
+footer p {
     padding-top: 30px;
 }
 
@@ -133,15 +133,10 @@ thead th {
     transform: rotate(-45deg);
 }
 
-footer .footer-social a.social:hover {
+.footer-social a.social:hover {
     color: #111;
 }
 
 .footer-social a.social:hover {
     background: #fff;
-}
-
-.footer-social a.social.smaller {
-    width: 10px;
-    height: 10px;
 }
