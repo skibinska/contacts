@@ -1,5 +1,14 @@
-# Created by .ignore support plugin (hsz.mobi)
+node_modules
+public
+.tmp
+.sass-cache
 .idea
 bower_components
-node_modules
-
+app/scripts/config.js
+.DS_Store
+dev-notes.txt
+tests/coverage
+test/junit
+test/spec
+tests/junit
+tests/spec
