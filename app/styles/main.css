@@ -5,7 +5,7 @@ body {
     height: 100%;
 }
 
-.btn,
+.no-radius,
 .form-control {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
@@ -24,10 +24,6 @@ input[type="email"]:focus {
     -moz-box-shadow: 0 0 3px rgba(0, 0, 0, .3);
     box-shadow: 0 0 3px rgba(0, 0, 0, .3);
     outline: none;
-}
-
-.error {
-    color: red;
 }
 
 .button {
@@ -73,6 +69,7 @@ thead {
 
 thead th {
     font-size: 20px;
+    padding: 10px;
 }
 
 #wrapper {
@@ -139,4 +136,14 @@ footer p {
 
 .footer-social a.social:hover {
     background: #fff;
+}
+
+form.ng-invalid-required,
+input.ng-invalid-required.ng-dirty,
+input.ng-invalid-email.ng-dirty {
+    border-color: #a94442;
+}
+
+.error {
+    color: red;
 }

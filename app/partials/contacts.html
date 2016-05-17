@@ -1,5 +1,5 @@
 <div class="page-header">
-    <h2>Contacts <span class="label label-default">{{vm.contacts.length}}</span></h2>
+    <h2>Contacts <span class="label label-default no-radius">{{vm.contacts.length}}</span></h2>
 </div>
 <div class="table-responsive">
     <table class="table table-hover">
@@ -33,7 +33,7 @@
     </table>
 </div>
 
-<a class="btn button" ui-sref="contacts.add" ng-click="vm.editContact({})">
+<a class="btn button no-radius" ui-sref="contacts.add" ng-click="vm.editContact({})">
     <i class="fa fa-user" aria-hidden="true"></i> Add New Contact</a>
 
 
