@@ -55,7 +55,7 @@
         function showContact(contact) {
             var showModal = $uibModal.open({
                 backdrop: 'static',
-                templateUrl: '/app/partials/contact-preview.html',
+                templateUrl: '/app/views/contact-preview.html',
                 controller: 'ContactController',
                 controllerAs: 'vm',
                 size: 'md',
@@ -118,7 +118,7 @@
             vm.contact = contact;
             var modalInstance = $uibModal.open({
                 backdrop: 'static',
-                templateUrl: '/app/partials/contact.html',
+                templateUrl: '/app/views/contact.html',
                 controller: 'ContactController',
                 controllerAs: 'vm',
                 size: 'md',

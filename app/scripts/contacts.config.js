@@ -13,7 +13,7 @@
 
         $urlRouterProvider.otherwise('/contacts');
 
-        var contactsTemplateUrl = '/app/partials/contacts.html';
+        var contactsTemplateUrl = '/app/views/contacts.html';
         var contactsController = 'ContactsController';
 
         $stateProvider
